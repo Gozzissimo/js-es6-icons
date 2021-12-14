@@ -133,15 +133,16 @@ const array = [
 // 2. contenitore
 const container = document.getElementById('container');
 
-// 3. stampa in pagina delle icone
+// 3. stampa in pagina delle icone e aggiunta colori
 for (let i = 0; i < array.length; i++) {
     const element = array[i];
 
     const icon = `
     <div class="icon-container">
-        <i class="${element.family} ${element.prefix}${element.name}"></i>
+        <i class="${element.family} ${element.prefix}${element.name} ${element.color}" id="icon"></i>
         <div class="icon-text">${element.name}</div>
-    </div>`
+    </div>`;
 
+    
     container.innerHTML += icon;
 }
