@@ -4,6 +4,55 @@
     box-sizing: border-box;
 }
 
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 50px;
+    line-height: 50px;
+    color: lightskyblue;
+    margin: 0 20px;
+}
+
+nav {
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    background-color: lightskyblue;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.icon-container {
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.icon{
+    width: 50px;
+    font-size: 2em;
+}
+
+.icon-text {
+    text-transform: uppercase;
+}
+
 .orange {
     color: orange;
 }

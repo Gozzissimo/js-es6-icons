@@ -140,7 +140,7 @@ for (let i = 0; i < array.length; i++) {
     
     const icon = `
     <div class="icon-container">
-        <i class="${element.family} ${element.prefix}${element.name} ${element.color}" id="icon"></i>
+        <i class="icon ${element.family} ${element.prefix}${element.name} ${element.color}" id="icon"></i>
         <div class="icon-text">${element.name}</div>
     </div>`;
     
