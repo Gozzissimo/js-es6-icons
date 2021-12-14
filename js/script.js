@@ -15,7 +15,7 @@
 
 
 // 1. Array
-const array = [
+const icons = [
     {
         name: 'cat',
         prefix: 'fa-',
@@ -134,9 +134,8 @@ const array = [
 const container = document.getElementById('container');
 
 // 3. stampa in pagina delle icone e aggiunta colori
-
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
+for (let i = 0; i < icons.length; i++) {
+    const element = icons[i];
     
     const icon = `
     <div class="icon-container">
@@ -145,7 +144,6 @@ for (let i = 0; i < array.length; i++) {
     </div>`;
     
     container.innerHTML += icon;
-    
 }
 
 // seleziono la select
@@ -157,6 +155,7 @@ select.addEventListener('change', (event) => {
     let optionSelected = event.target.value;
     let iconSelected = icons;
 
+    // filtro
     if (optionSelected != 'all') {
         iconSelected = icons.filter((element) => {
             return element.type == optionSelected;
@@ -165,47 +164,19 @@ select.addEventListener('change', (event) => {
 
     // svuoto contenitore
     container.innerHTML = '';
-
-    // filtro le icone
+    // stampo icone
     printIcons(iconSelected);
-
-    function printIcons(array) {
-        array.array.forEach(element => {
-            let htmlBoxIcon
-        });
-        
-    }
-
-    // switch (optionSelected) {
-    //     case 'all':
-    //         iconSelected = icons;
-    //         });
-    //         break;
-
-    //     case 'animal':
-    //         iconSelected = icons.filter((element) => {
-    //             return element.type == 'animal';
-    //         });
-    //         break;
-
-    //     case 'vegetable':
-    //         iconSelected = icons.filter((element) => {
-    //             return element.type == 'vegetable';
-    //         });
-    //         break;
-
-    //     case 'user':
-    //         iconSelected = icons.filter((element) => {
-    //             return element.type == 'user';
-    //         });
-    //         break;
-
-    //     default:
-    //         iconSelected = icons.filter((element) => {
-    //             return element.type == optionSelected;
-    //         });
-    //         break;
-    // }
-
-    // console.log(iconSelected);
+    
 });
+
+function printIcons(array) {
+    array.forEach((element) => {
+        let htmlBoxIcon = `
+            <div class="icon-container">
+                <i class="icon ${element.family} ${element.prefix}${element.name} ${element.color}" style="color:${element.color}" id="icon"></i>
+                <div class="icon-text">${element.name}</div>
+            </div>
+        `;
+        container.innerHTML += htmlBoxIcon;
+    });
+}
