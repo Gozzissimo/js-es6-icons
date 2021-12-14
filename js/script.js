@@ -134,15 +134,25 @@ const array = [
 const container = document.getElementById('container');
 
 // 3. stampa in pagina delle icone e aggiunta colori
+
 for (let i = 0; i < array.length; i++) {
     const element = array[i];
-
+    
     const icon = `
     <div class="icon-container">
         <i class="${element.family} ${element.prefix}${element.name} ${element.color}" id="icon"></i>
         <div class="icon-text">${element.name}</div>
     </div>`;
-
     
     container.innerHTML += icon;
+    
 }
+
+const types = array.filter((type) => {
+    if (type == 'vegetable') {
+        return true;
+    }
+    return false;
+});
+console.log(types);
+
