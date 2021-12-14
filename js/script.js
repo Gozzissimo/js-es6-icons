@@ -15,7 +15,6 @@
 
 
 // 1. Array
-
 const array = [
     {
         name: 'cat',
@@ -130,3 +129,19 @@ const array = [
         color: 'blue'
     }
 ];
+
+// 2. contenitore
+const container = document.getElementById('container');
+
+// 3. stampa in pagina delle icone
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+
+    const icon = `
+    <div class="icon-container">
+        <i class="${element.family} ${element.prefix}${element.name}"></i>
+        <div class="icon-text">${element.name}</div>
+    </div>`
+
+    container.innerHTML += icon;
+}
