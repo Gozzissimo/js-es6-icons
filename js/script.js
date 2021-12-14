@@ -140,7 +140,7 @@ for (let i = 0; i < array.length; i++) {
     
     const icon = `
     <div class="icon-container">
-        <i class="icon ${element.family} ${element.prefix}${element.name} ${element.color}" id="icon"></i>
+        <i class="icon ${element.family} ${element.prefix}${element.name} ${element.color}" style="color:${element.color}" id="icon"></i>
         <div class="icon-text">${element.name}</div>
     </div>`;
     
@@ -148,11 +148,64 @@ for (let i = 0; i < array.length; i++) {
     
 }
 
-const types = array.filter((type) => {
-    if (type == 'vegetable') {
-        return true;
-    }
-    return false;
-});
-console.log(types);
+// seleziono la select
+const select = document.getElementById('type');
 
+// creo l'addEventListener change per la select
+select.addEventListener('change', (event) => {
+
+    let optionSelected = event.target.value;
+    let iconSelected = icons;
+
+    if (optionSelected != 'all') {
+        iconSelected = icons.filter((element) => {
+            return element.type == optionSelected;
+        });
+    }
+
+    // svuoto contenitore
+    container.innerHTML = '';
+
+    // filtro le icone
+    printIcons(iconSelected);
+
+    function printIcons(array) {
+        array.array.forEach(element => {
+            let htmlBoxIcon
+        });
+        
+    }
+
+    // switch (optionSelected) {
+    //     case 'all':
+    //         iconSelected = icons;
+    //         });
+    //         break;
+
+    //     case 'animal':
+    //         iconSelected = icons.filter((element) => {
+    //             return element.type == 'animal';
+    //         });
+    //         break;
+
+    //     case 'vegetable':
+    //         iconSelected = icons.filter((element) => {
+    //             return element.type == 'vegetable';
+    //         });
+    //         break;
+
+    //     case 'user':
+    //         iconSelected = icons.filter((element) => {
+    //             return element.type == 'user';
+    //         });
+    //         break;
+
+    //     default:
+    //         iconSelected = icons.filter((element) => {
+    //             return element.type == optionSelected;
+    //         });
+    //         break;
+    // }
+
+    // console.log(iconSelected);
+});
